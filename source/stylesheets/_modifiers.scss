@@ -1,0 +1,63 @@
+// document clipping
+.-contain {
+    height: 100%;
+    overflow: hidden;
+    width: 100%;
+    }
+
+// background-size
+.-cover {
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+    @include background-size(cover);
+    }
+.-cover--top {
+    background-position: 50% 0;
+    }
+.-cover--bottom {
+    background-position: 50% 100%;
+    }
+.-cover--left {
+    background-position: 0 50%;
+    }
+.-cover--right {
+    background-position: 100% 50%;
+    }
+
+// floating
+.-float--right {
+    float: right;
+    }
+.-float--left {
+    float: left;
+    }
+.-clear:after {
+    clear: both;
+    content: "";
+    display: block;
+    height: 0;
+    visibility: hidden;
+    }
+
+// text alignment
+.-text--center {
+    text-align: center;
+    }
+.-text--right {
+    text-align: right;
+    }
+.-text--left {
+    text-align: left;
+    }
+
+// lazy loading states
+.-is-lazy-loading {
+    @include opacity(0);
+}
+.-is-lazy-transition {
+    @include transition(opacity 400ms ease);
+}
+.-is-lazy-loaded {
+    @include opacity(1);
+}
+.-is-lazy-handled {}

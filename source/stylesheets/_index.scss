@@ -1,0 +1,127 @@
+.index {
+    background-color: $color_white;
+    bottom: -50px;
+    color: $color_black;
+    left: 0;
+    position: fixed;
+    right: 0;
+    top: -50px;
+    visibility: hidden;
+    z-index: -1;
+    @include opacity(0);
+    @include transform(translate3d(0, 50px, 0));
+    @include transition(opacity 400ms ease, transform 400ms ease);
+
+    &.is-active {
+        @include opacity(1);
+        @include transform(translate3d(0, 0, 0));
+        z-index: 999;
+        visibility: visible;
+    }
+
+    &.is-inactive {
+        @include opacity(0);
+        @include transform(translate3d(0, 50px, 0));
+        z-index: 999;
+        visibility: visible;
+    }
+}
+.index__rivals {
+    background: url("../images/rivals.svg") no-repeat 50% 50%;
+    cursor: pointer;
+    @include background-size(120px 38px);
+    display: inline-block;
+    height: 38px;
+    position: relative;
+    text-align: left;
+    text-indent: -9999px;
+    width: 120px;
+}
+.index__title {
+    font-size: 28px;
+    letter-spacing: 10px;
+    top: 100px;
+}
+.index__links {
+    bottom: 80px;
+    color: $color_black;
+    font-size: 16px;
+    letter-spacing: 2px;
+}
+.index__links__item {
+    display: inline-block;
+    vertical-align: middle;
+}
+.index__links__link {
+    color: $color_black;
+    cursor: pointer;
+    text-decoration: none;
+}
+.index__title,
+.index__links {
+    left: 0;
+    position: absolute;
+    width: 100%;
+}
+.index__slides {
+    height: 100%;
+    left: 0;
+    overflow-x: scroll;
+    overflow-y: hidden;
+    position: absolute;
+    top: 0;
+    white-space: nowrap;
+    width: 100%;
+    @include opacity(0);
+    @include transform(translate3d(50px, 0, 0));
+    @include transition(opacity 400ms ease, transform 400ms ease);
+
+    &.is-active {
+        @include opacity(1);
+        @include transform(translate3d(0, 0, 0));
+    }
+}
+.index__slider {
+    font-family: "Courier New", Monospace;
+    letter-spacing: -.65em;
+}
+.index__slide__item {
+    cursor: pointer;
+    display: inline-block;
+    font-family: $font_din;
+    letter-spacing: normal;
+    margin-left: 7px;
+    position: relative;
+    vertical-align: top;
+
+    &:first-child {
+        margin-left: 0;
+    }
+}
+.index__slide {
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+    float: left;
+    @include background-size(cover);
+}
+.index__slide--tall,
+.index__slide--split {
+    height: 343px;
+    width: 228px;
+}
+.index__slide--wide,
+.index__slide--video {
+    height: 343px;
+    width: 610px
+}
+.index__slide--split + .index__slide--split {
+    margin-left: 7px;
+}
+
+
+@media only screen and (max-height: 600px) {
+    .index__title,
+    .index__links {
+        display: none;
+    }
+}

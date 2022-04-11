@@ -1,0 +1,10 @@
+.valigner {
+    display: table;
+    height: 100%;
+    width: 100%;
+}
+.valigner__cell {
+    display: table-cell;
+    vertical-align: middle;
+    width: 100%;
+}

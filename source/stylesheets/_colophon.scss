@@ -1,0 +1,131 @@
+.colophon {
+    background-color: $color_white;
+    bottom: 100px;
+    color: $color_black;
+    font-size: 47px;
+    left: 0;
+    letter-spacing: 3px;
+    line-height: 1.1489;
+    position: fixed;
+    right: 0;
+    top: 0;
+    visibility: hidden;
+    z-index: -1;
+    @include opacity(0);
+    @include transform(translate3d(0, 150px, 0));
+    @include transition(opacity 400ms ease, transform 400ms ease);
+
+    &.is-active {
+        @include opacity(1);
+        @include transform(translate3d(0, 100px, 0));
+        z-index: 999;
+        visibility: visible;
+
+        .colophon__about {
+            @include opacity(1);
+        }
+    }
+
+    &.is-active-full {
+        @include transition(opacity 400ms ease);
+        @include opacity(1);
+        @include transform(translate3d(0, 0, 0));
+        bottom: 0;
+        z-index: 999;
+        visibility: visible;
+
+        .colophon__about {
+            @include transition(opacity 400ms ease, transform 400ms ease);
+            @include opacity(1);
+            @include transform(translate3d(0, -150px, 0));
+            top: 150px;
+        }
+    }
+
+    &.is-inactive {
+        @include opacity(0);
+        @include transform(translate3d(0, 150px, 0));
+        z-index: 999;
+        visibility: visible;
+    }
+
+    &.is-active-full.is-inactive {
+        @include transform(translate3d(0, 0, 0));
+
+        .colophon__about {
+            @include opacity(0);
+            @include transform(translate3d(0, 0, 0));
+        }
+    }
+}
+.colophon__about {
+    @include opacity(0);
+    display: inline-block;
+    font-family: $font_superior;
+    margin-top: -100px;
+    max-width: 980px;
+    position: relative;
+}
+.colophon__close {
+    cursor: pointer;
+    position: absolute;
+    right: 0;
+    top: -100px;
+}
+.colophon__links {
+    bottom: 30px;
+    color: $color_black;
+    font-size: 16px;
+    left: 100px;
+    letter-spacing: 2px;
+    position: fixed;
+    right: 100px;
+    text-align: left;
+
+    font-family: "Courier New", Monospace;
+    letter-spacing: -.65em;
+}
+.colophon__link {
+    display: inline-block;
+    font-family: $font_din;
+    letter-spacing: 2px;
+    vertical-align: middle;
+    width: 33.33333%;
+}
+.colophon__links__link {
+    color: $color_black;
+    text-decoration: none;
+}
+
+@media only screen and (max-width: 980px) {
+    .no-touch {
+        .colophon {
+            @include box-sizing(border-box);
+            padding: 60px;
+        }
+    }
+}
+
+@media only screen and (max-height: 700px) {
+    .no-touch {
+        .colophon {
+            font-size: 32px;
+        }
+    }
+}
+
+@media only screen and (max-height: 600px) {
+    .no-touch {
+        .colophon {
+            @include transform(none !important);
+            bottom: 0;
+            top: 0;
+        }
+        .colophon__about {
+            margin-top: 0;
+        }
+        .colophon__links {
+            display: none;
+        }
+    }
+}

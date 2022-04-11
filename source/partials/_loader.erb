@@ -1,0 +1,45 @@
+<div class="loader js-loader">
+    <div class="valigner -text--center">
+        <div class="valigner__cell">
+            <div class="loader__bar js-loader-bar"></div>
+            <div class="loader__mark js-loader-mark">
+                <%= partial "partials/svg-rivals" %>
+            </div>
+            <ul class="loader__info js-loader-info">
+                <li class="loader__info__item">
+                    <div class="loader__info__graphic">
+                        <span class="loader__info__graphic__return">
+                            <%= partial "partials/svg-return" %>
+                        </span>
+                    </div>
+                    <div class="loader__info__label">Index</div>
+                </li>
+                <li class="loader__info__item">
+                    <div class="loader__info__graphic">
+                        <span class="loader__info__graphic__scroll">
+                            <%= partial "partials/svg-scroll" %>
+                        </span>
+                    </div>
+                    <div class="loader__info__label">Scroll</div>
+                </li>
+                <li class="loader__info__item">
+                    <div class="loader__info__graphic">
+                        <span class="loader__info__graphic__navigate">
+                            <%= partial "partials/svg-navigate" %>
+                        </span>
+                    </div>
+                    <div class="loader__info__label">Navigate</div>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+<div class="loader--mobile">
+    <div class="valigner -text--center">
+        <div class="valigner__cell">
+            <div class="loader__mark">
+                <img src="images/rivals-intro.svg" alt="Rivals" width="165" />
+            </div>
+        </div>
+    </div>
+</div>
