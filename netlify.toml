@@ -1,0 +1,12 @@
+[build]
+  command = "echo 'legacy skip build'"
+  publish = "build"
+
+[context.production]
+  environment = { NODE_VERSION = "16.14.2" }
+
+[context.deploy-preview]
+  environment = { NODE_VERSION = "16.14.2" }
+
+[context.branch-deploy]
+  environment = { NODE_VERSION = "16.14.2" }
